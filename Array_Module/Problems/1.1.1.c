@@ -24,4 +24,4 @@ int main(){
 		}
 	}
 	printf("%d",arr[0]);
-}
+} 
