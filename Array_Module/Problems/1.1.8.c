@@ -40,7 +40,7 @@ int sparseMatrix(int r,int c,int arr[r][c]){
 }
 void printMatrix(int r,int c,int arr[r][c]){
 	for(int i=0;i<r;i++){
-		for(int j=0;j<c;j++){
+		for(int j=0;j<3;j++){
 			if (arr[i][j]!=0){
 				printf("%d %d %d\n",i,j,arr[i][j]);
 			}
