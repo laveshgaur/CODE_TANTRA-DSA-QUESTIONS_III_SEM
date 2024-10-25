@@ -22,22 +22,6 @@ struct node *insert(struct node *head,int coeff,int exp){
 		return head;
 	}
 }
-struct node *insertAns(struct node *ans,int coeff,int exp){
-	struct node *ptr=(struct node *)malloc(sizeof(struct node));
-	ptr->coeff=coeff;
-	ptr->exp=exp;
-	ptr->next=NULL;
-	struct node *temp=ans;
-	if(temp==NULL){
-		return ptr;
-	}else{
-		while(temp->next!=NULL){
-			temp=temp->next;
-		}
-		temp->next=ptr;
-		return ans;
-	}
-}
 struct node *sum(struct node *eq1,struct node *eq2){
 	struct node *temp1=eq1;
 	struct node *temp2=eq2;
@@ -48,25 +32,25 @@ struct node *sum(struct node *eq1,struct node *eq2){
 			int exp2=temp2->exp;
 			if(exp1==exp2){
 				int coeff=temp1->coeff+temp2->coeff;
-				temp3=insertAns(temp3,coeff,exp1);
+				temp3=insert(temp3,coeff,exp1);
 				temp1=temp1->next;
 				temp2=temp2->next;
 			}
 			else if(exp1<exp2){
-				temp3=insertAns(temp3,temp2->coeff,exp2);
+				temp3=insert(temp3,temp2->coeff,exp2);
 				temp2=temp2->next;
 			}
 			else{
-				temp3=insertAns(temp3,temp1->coeff,exp1);
+				temp3=insert(temp3,temp1->coeff,exp1);
 				temp1=temp1->next;
 			}
 		}
 		if(temp1!=NULL && temp2==NULL){
-			temp3=insertAns(temp3,temp1->coeff,temp1->exp);
+			temp3=insert(temp3,temp1->coeff,temp1->exp);
 			temp1=temp1->next;
 		}
 		if(temp2!=NULL && temp1==NULL){
-			temp3=insertAns(temp3,temp2->coeff,temp2->exp);
+			temp3=insert(temp3,temp2->coeff,temp2->exp);
 			temp2=temp2->next;
 		}
 		if(temp1==NULL && temp2==NULL)break;
