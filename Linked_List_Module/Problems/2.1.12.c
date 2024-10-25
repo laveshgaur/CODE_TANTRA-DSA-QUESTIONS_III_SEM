@@ -83,7 +83,7 @@ void display(struct node *head){
 }
 int main(){
 	int a,b;
-	struct node *eq1,*eq2;
+	struct node *eq1=NULL,*eq2=NULL;
 	scanf("%d",&a);
 	for(int i=0;i<a;i++){
 		int coeff,exp;
